@@ -8,7 +8,7 @@ part of 'company.dart';
 
 Company _$CompanyFromJson(Map<String, dynamic> json) {
   return Company(
-    companyId: json['companyId'] as String,
+    companyId: json['ban'] as String,
     businessAddress: json['businessAddress'] as String,
     businessNm: json['businessNm'] as String,
     capitalAmount: json['capitalAmount'] as int,
@@ -19,7 +19,7 @@ Company _$CompanyFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$CompanyToJson(Company instance) => <String, dynamic>{
-      'companyId': instance.companyId,
+      'ban': instance.companyId,
       'businessAddress': instance.businessAddress,
       'businessNm': instance.businessNm,
       'capitalAmount': instance.capitalAmount,

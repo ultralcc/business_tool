@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class CompanySearchViewModel extends BaseModel {
   final CompanyService _companyService = locator<CompanyService>();
-  Company _companyData;
+  Company companyData;
 
   FocusNode companyIdFieldNode = FocusNode();
   TextEditingController controller = TextEditingController();
@@ -17,14 +17,20 @@ class CompanySearchViewModel extends BaseModel {
   }
 
   fetchData(String companyID) async {
-    if (companyID.isNotEmpty && state == ViewState.Idle) {
+    if (companyID == null) companyID = controller.text;
+    if (companyID.isNotEmpty && state != ViewState.Busy) {
       setState(ViewState.Busy);
       var resultData = await _companyService.getCompanyData(companyID);
-      if (resultData.code == 200) _companyData = Company.fromJson(resultData.data);
-      else _companyData = null;
-      print(_companyData?.businessNm ?? 'None');
-      setState(ViewState.Idle);
-    }
+      if (resultData.code == 200) {
+        companyData = Company.fromJson(resultData.data);
+        setState(ViewState.Success);
+      } else {
+        companyData = null;
+        setState(ViewState.Error);
+      }
+      print(companyData?.businessNm ?? 'None');
+    } else 
+        setState(ViewState.Idle);
   }
 
   onTextFieldFocus() {

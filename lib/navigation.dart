@@ -1,3 +1,4 @@
+import 'package:business_tools/ui/shared/app_colors.dart';
 import 'package:business_tools/ui/views/company_search/company_searcher_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +41,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Color(0xff478F76)));
+        SystemUiOverlayStyle(statusBarColor: primary));
     return Scaffold(
       body: SafeArea(
         child: CompanySearcherView(),
@@ -48,7 +49,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: navigationItems,
         currentIndex: _selectedIndex,
-        selectedItemColor:  Color(0xff5BB899),
+        selectedItemColor:  lightPrimary,
         onTap: onNavigationTap,
       ),
     );

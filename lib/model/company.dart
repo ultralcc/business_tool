@@ -4,6 +4,7 @@ part 'company.g.dart';
 
 @JsonSerializable(nullable: true)
 class Company{
+  @JsonKey(name: 'ban')
   String companyId;
   String businessAddress;
   String businessNm;
