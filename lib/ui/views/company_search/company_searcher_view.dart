@@ -17,7 +17,12 @@ class _CompanySearcherViewState extends State<CompanySearcherView> {
   Widget _bodyContent(CompanySearchViewModel model) {
     switch (model.state) {
       case ViewState.Busy:
-        return CircularLoading();
+        return Container(
+          height: MediaQuery.of(context).size.height - 200,
+          child: Center(
+            child: CircularLoading(),
+          ),
+        );
         break;
       case ViewState.Idle:
         return EmptyResult();
