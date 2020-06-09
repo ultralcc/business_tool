@@ -2,7 +2,6 @@ import 'package:business_tools/ui/shared/app_colors.dart';
 import 'package:business_tools/ui/views/company_search/company_searcher_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class NavigationWidget extends StatefulWidget {
   NavigationWidget({Key key}) : super(key: key);
